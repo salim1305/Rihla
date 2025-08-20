@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rihla - Accueil</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <nav class="nav-container">
+      <a href="index.html" class="nav-logo">
+  <img src="images/Logo simple.jpg" alt="Rihla Logo" />
+      </a>
+      <input type="search" placeholder="Où allez-vous ?" class="nav-search" />
+      <div class="nav-links">
+        <span class="user-name"></span>
+        <img class="user-avatar" src="" alt="Avatar" style="width:32px;height:32px;border-radius:50%;object-fit:cover;vertical-align:middle;display:none;" onerror="this.style.display='none'" />
+        <a href="devenir-hote-experience.html">Devenez hôte</a>
+        <a href="connexion.html">Connexion</a>
+        <a href="profil.html">Profil</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Vivez des expériences uniques au Maroc</h1>
+      <p>Réservez des séjours et activités auprès d'hôtes locaux.</p>
+      <button class="btn-primary">Commencer</button>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="categories">
+  <h2>Explorer par catégories</h2>
+  <div class="carousel">
+    <button class="carousel-btn prev" aria-label="Précédent">&#10094;</button>
+    <div class="carousel-track-container">
+      <ul class="carousel-track">
+        <li class="carousel-slide category-item">
+          <img src="https://desertmaroc.com/acaciavoyages/wp-content/uploads/2024/01/maroc-dos-de-chameau-1080x675.jpeg" alt="Désert">
+          <p>Désert</p>
+        </li>
+        <li class="carousel-slide category-item">
+          <img src="https://www.moroccomall.ma/images/blog/2-Sidi-Ifni-Legzira.jpg" alt="Plages">
+          <p>Plages</p>
+        </li>
+        <li class="carousel-slide category-item">
+          <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/d4/74/e2/photo0jpg.jpg?w=500&h=500&s=1" alt="Montagnes">
+          <p>Montagnes</p>
+        </li>
+        <li class="carousel-slide category-item">
+          <img src="https://www.marocvoyages.com/wp-content/uploads/2016/02/Ville-Casablanca-Maroc.jpg" alt="Villes">
+          <p>Villes</p>
+        </li>
+      </ul>
+    </div>
+    <button class="carousel-btn next" aria-label="Suivant">&#10095;</button>
+  </div>
+</section>
+
+  <!-- POPULAR EXPERIENCES -->
+  <section class="popular-experiences">
+    <h2>Expériences populaires</h2>
+    <div class="experience-grid">
+      <article class="experience-card">
+        <img src="https://terra-maroc.com/wp-content/uploads/desert-sahara-maroc-activites-31.jpg" alt="Balade dans le désert" />
+        <h3>Balade dans le désert</h3>
+        <p>À partir de 499 MAD/personne</p>
+      </article>
+      <article class="experience-card">
+        <img src="https://www.lopinion.ma/photo/art/default/65328207-46637886.jpg?v=1655025768" alt="Cours de cuisine marocaine" />
+        <h3>Cours de cuisine marocaine</h3>
+        <p>À partir de 299 MAD/personne</p>
+      </article>
+      <article class="experience-card">
+        <img src="https://www.lameridionale.fr/sites/default/files/media/image/2022-04/Jardins-Menara.jpg" alt="Visite de monuments" />
+        <h3>Visite de monuments</h3>
+        <p>À partir de 199 MAD/personne</p>
+      </article>
+    </div>
+  </section>
+  <!-- DOWNLOAD APP SECTION -->
+<section class="download-app">
+  <h2>Téléchargez notre application</h2>
+  <div class="app-links">
+    <a href="https://apps.apple.com/app/idXXXXXXXXX" target="_blank" rel="noopener">
+  <img src="images/appstore.png" alt="App Store" />
+    </a>
+   </div>
+   <div class="playstore-links">
+    <a href="https://play.google.com/store/apps/details?id=XXXXXXXXX" target="_blank" rel="noopener">
+  <img src="images/playstore.png" alt="Google Play Store" />
+    </a>
+    </div>
+</section>
+
+
+  <!-- FOOTER -->
+ <footer class="footer">
+  <img src="images/Logo+slogan+arabe.jpg" 
+  alt="Logo Rihla" 
+  class="footer-logo"/>
+  <p>&copy; 2025 Rihla. Tous droits réservés.</p>
+  <nav class="footer-links">
+    <span class="user-name"></span>
+    <img class="user-avatar" src="" alt="Avatar" style="width:32px;height:32px;border-radius:50%;object-fit:cover;vertical-align:middle;display:none;" onerror="this.style.display='none'" />
+    <a href="a-propos.html">À propos</a>
+    <a href="conditions.html">Conditions</a>
+    <a href="confidentialite.html">Confidentialité</a>
+  </nav>
+</footer>
+<script type="module" src="js/user-info.js"></script>
+<script src="accueil.js"></script>
+</body>
+</html>

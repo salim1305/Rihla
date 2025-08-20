@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Expériences</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Expériences</h1>
+  <form id="experience-form" enctype="multipart/form-data">
+    <input type="text" name="title" placeholder="Titre" required>
+    <textarea name="description" placeholder="Description" required></textarea>
+    <input type="file" name="image" accept="image/*">
+    <button type="submit">Créer l'expérience</button>
+  </form>
+  <div id="experiences-list"></div>
+  <script type="module">
+    import { getExperiences, createExperience } from './js/experience.js';
+
+    async function renderExperiences() {
+      const list = document.getElementById('experiences-list');
+      list.innerHTML = '';
+      const experiences = await getExperiences();
+      experiences.forEach(exp => {
+        const div = document.createElement('div');
+        div.className = 'experience';
+        div.innerHTML = `
+          <h3>${exp.title}</h3>
+          <p>${exp.description}</p>
+          ${exp.image ? `<img src="${exp.image}" style="max-width:200px;">` : ''}
+          <small>Par: ${exp.user?.name || 'Utilisateur'} | ${new Date(exp.createdAt).toLocaleString()}</small>
+        `;
+        list.appendChild(div);
+      });
+    }
+
+    document.getElementById('experience-form').onsubmit = async e => {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+      await createExperience(data);
+      form.reset();
+      renderExperiences();
+    };
+
+    renderExperiences();
+  </script>
+</body>
+</html>

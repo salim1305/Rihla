@@ -1,0 +1,50 @@
+/* admin.css : style moderne pour le dashboard admin */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f6f8fa;
+  margin: 0;
+  color: #222;
+}
+nav {
+  background: #1a2233;
+  color: #fff;
+  padding: 1em 2em;
+  display: flex;
+  gap: 2em;
+  align-items: center;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+nav a:hover, nav a.active {
+  background: #2d3a5a;
+}
+#admin-content {
+  max-width: 900px;
+  margin: 2em auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #0001;
+  padding: 2em;
+}
+h1 {
+  text-align: center;
+  margin-top: 1.5em;
+  color: #1a2233;
+}
+h2 {
+  color: #2d3a5a;
+  margin-top: 0;
+}
+#admin-content > div {
+  border-bottom: 1px solid #eee;
+  padding: 1em 0;
+}
+#admin-content > div:last-child {
+  border-bottom: none;
+}

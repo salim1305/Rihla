@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Devenir hôte d’expérience – Rihla</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="navbar">
+  <nav class="nav-container">
+  <a href="index.html" class="nav-logo"><img src="images/Logo simple.jpg" alt="Rihla"></a>
+    <input type="search" class="nav-search" placeholder="Chercher une expérience">
+    <div class="nav-links">
+      <a href="devenir-hote-experience.html" class="active">Devenir hôte</a>
+      <a href="connexion.html">Connexion</a>
+      <a href="profil.html">Profil</a>
+    </div>
+  </nav>
+</header>
+
+<main class="container">
+  <h1>Devenir hôte d’expérience</h1>
+
+  <!-- Stepper -->
+  <ol class="stepper" data-step="1">
+    <li class="is-active">Infos</li>
+    <li>Expérience</li>
+    <li>Disponibilités</li>
+    <li>Tarif & Publication</li>
+  </ol>
+
+  <form id="hostExpForm" class="multi-step-form">
+    <!-- Étape 1 : Infos hôte -->
+    <section class="form-step is-active">
+      <h2>1) Vos informations</h2>
+      <div class="grid-2">
+        <div>
+          <label>Nom complet</label>
+          <input type="text" required>
+        </div>
+        <div>
+          <label>Téléphone</label>
+          <input type="tel" required>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div>
+          <label>E-mail</label>
+          <input type="email" required>
+        </div>
+        <div>
+          <label>Langues parlées</label>
+          <input type="text" placeholder="Français, Arabe, Anglais…">
+        </div>
+      </div>
+      <div>
+        <label>Présentation</label>
+        <textarea rows="4" placeholder="Parlez brièvement de vous"></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="btn-primary next-step">Suivant</button>
+      </div>
+    </section>
+
+    <!-- Étape 2 : Détails de l’expérience -->
+    <section class="form-step">
+      <h2>2) Votre expérience</h2>
+
+      <div>
+        <label>Titre de l’expérience</label>
+        <input type="text" placeholder="Ex: Atelier de cuisine marocaine à Fès" required>
+      </div>
+
+      <div class="grid-2">
+        <div>
+          <label>Catégorie</label>
+          <select required>
+            <option value="">Sélectionnez</option>
+            <option>Aventure</option>
+            <option>Culture & Histoire</option>
+            <option>Cuisine</option>
+            <option>Nature</option>
+            <option>Artisanat</option>
+            <option>Bien-être</option>
+          </select>
+        </div>
+        <div>
+          <label>Ville / Lieu</label>
+          <input type="text" placeholder="Marrakech, Fès, Chefchaouen…" required>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div>
+          <label>Durée</label>
+          <input type="text" placeholder="3h, journée, etc." required>
+        </div>
+        <div>
+          <label>Capacité max</label>
+          <input type="number" min="1" placeholder="Ex: 10" required>
+        </div>
+        <div>
+          <label>Âge minimum</label>
+          <input type="number" min="0" placeholder="Ex: 8">
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div>
+          <label>Ce qui est inclus</label>
+          <textarea rows="3" placeholder="Matériel, repas, transport…"></textarea>
+        </div>
+        <div>
+          <label>Ce qui n’est pas inclus</label>
+          <textarea rows="3" placeholder="Assurance, pourboires…"></textarea>
+        </div>
+      </div>
+
+      <div>
+        <label>Photos (JPEG/PNG)</label>
+        <input type="file" accept="image/*" multiple>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="btn-secondary prev-step">Précédent</button>
+        <button type="button" class="btn-primary next-step">Suivant</button>
+      </div>
+    </section>
+
+    <!-- Étape 3 : Disponibilités -->
+    <section class="form-step">
+      <h2>3) Disponibilités</h2>
+      <div class="grid-3">
+        <label>Jours</label>
+<div class="days-selector">
+  <button type="button" data-day="Lundi">Lundi</button>
+  <button type="button" data-day="Mardi">Mardi</button>
+  <button type="button" data-day="Mercredi">Mercredi</button>
+  <button type="button" data-day="Jeudi">Jeudi</button>
+  <button type="button" data-day="Vendredi">Vendredi</button>
+  <button type="button" data-day="Samedi">Samedi</button>
+  <button type="button" data-day="Dimanche">Dimanche</button>
+</div>
+<!-- Champ caché pour envoyer les jours sélectionnés au serveur -->
+<input type="hidden" name="jours" id="selectedDays">
+        <div>
+          <label>Heure de début</label>
+          <input type="time">
+        </div>
+        <div>
+          <label>Point de rendez-vous</label>
+          <input type="text" placeholder="Adresse / Lieu exact">
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="btn-secondary prev-step">Précédent</button>
+        <button type="button" class="btn-primary next-step">Suivant</button>
+      </div>
+    </section>
+
+    <!-- Étape 4 : Tarif & Publication -->
+    <section class="form-step">
+      <h2>4) Tarif & Publication</h2>
+
+      <div class="grid-3">
+        <div>
+          <label>Tarif par personne (MAD)</label>
+          <input type="number" min="0" required placeholder="Ex: 299">
+        </div>
+        <div>
+          <label>Politique d’annulation</label>
+          <select>
+            <option>Flexible</option>
+            <option>Modérée</option>
+            <option>Stricte</option>
+          </select>
+        </div>
+        <div>
+          <label>Contact d’urgence</label>
+          <input type="tel" placeholder="+212 ...">
+        </div>
+      </div>
+
+      <div>
+        <label>Consignes & sécurité</label>
+        <textarea rows="3" placeholder="Équipement requis, conditions physiques, etc."></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="btn-secondary prev-step">Précédent</button>
+        <button type="submit" class="btn-primary">Publier l’expérience</button>
+      </div>
+    </section>
+  </form>
+</main>
+  <!-- DOWNLOAD APP SECTION -->
+<section class="download-app">
+  <h2>Téléchargez notre application</h2>
+  <div class="app-links">
+    <a href="https://apps.apple.com/app/idXXXXXXXXX" target="_blank" rel="noopener">
+  <img src="images/appstore.png" alt="App Store" />
+    </a>
+   </div>
+   <div class="playstore-links">
+    <a href="https://play.google.com/store/apps/details?id=XXXXXXXXX" target="_blank" rel="noopener">
+  <img src="images/playstore.png" alt="Google Play Store" />
+    </a>
+    </div>
+</section>
+
+
+  <!-- FOOTER -->
+ <footer class="footer">
+  <img src="images/Logo+slogan+arabe.jpg" 
+  alt="Logo Rihla" 
+  class="footer-logo"/>
+  <p>&copy; 2025 Rihla. Tous droits réservés.</p>
+  <nav class="footer-links">
+    <a href="a-propos.html">À propos</a>
+    <a href="conditions.html">Conditions</a>
+    <a href="confidentialite.html">Confidentialité</a>
+  </nav>
+</footer>
+<script type="module">
+  import { api } from './js/api.js';
+
+  const form = document.getElementById('hostExpForm');
+
+  // sélecteur des jours
+  const dayButtons = document.querySelectorAll(".days-selector button");
+  const hiddenDays = document.getElementById("selectedDays");
+  dayButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      btn.classList.toggle("active");
+      const selected = [...dayButtons].filter(b => b.classList.contains("active")).map(b => b.dataset.day);
+      hiddenDays.value = selected.join(",");
+    });
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const token = localStorage.getItem('token');
+    if (!token) return (window.location.href = 'connexion.html');
+
+    const fd = new FormData(form);
+    // Optionnel: remapper proprement tes champs pour le backend
+    // ex: fd.set('title', ...), fd.set('price', ...), etc.
+
+    try {
+      await api.postForm('/listings', fd);
+      alert('Expérience publiée avec succès !');
+      window.location.href = 'profil.html';
+    } catch (err) {
+      alert(err.message || 'Erreur lors de la publication.');
+    }
+  });
+</script>
+<script src="app.js"></script>
+</body>
+</html>

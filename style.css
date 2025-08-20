@@ -1,0 +1,33 @@
+  .logo {
+    width: 450px;
+    height: 200px;
+  }
+  body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 20px;
+  }
+  h1, h2, h3 {
+    color: #0f6974;
+  }
+  .search-button {
+    background-color : #0f6974;
+    color: white;
+    height: 40px;
+    width: 100px;
+    border: 1px solid white;
+    border-radius: 5px;
+  }
+  .look-more-button {
+    color: #0f6974;
+    background-color: white;
+    height: 40px;
+    width: 100px;
+    border: 1px solid #0f6974;
+    border-radius: 5px;
+  }
+  input[type="text"] {
+    width: 400px;
+    height: 40px;
+    border: 1px solid #0f6974;
+    border-radius: 5px;
+  }

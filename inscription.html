@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Inscription – Rihla</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="navbar">
+  <nav class="nav-container">
+  <a href="index.html" class="nav-logo"><img src="images/Logo simple.jpg" alt="Rihla"></a>
+    <div class="nav-links">
+      <a href="connexion.html">Connexion</a>
+    </div>
+  </nav>
+</header>
+
+<main class="container">
+  <h1>Inscription</h1>
+
+  <ol class="stepper" data-step="1">
+    <li class="is-active">Compte</li>
+    <li>Profil</li>
+  </ol>
+
+  <form id="signupForm" class="multi-step-form" novalidate>
+    <section class="form-step is-active">
+      <h2>Compte</h2>
+      <label>E-mail</label>
+      <input type="email" required>
+      <label>Mot de passe</label>
+      <input type="password" required>
+      <div class="form-actions">
+        <button type="button" class="btn-primary next-step">Suivant</button>
+      </div>
+    </section>
+
+    <section class="form-step">
+      <h2>Profil</h2>
+      <div class="grid-2">
+        <div>
+          <label>Prénom</label>
+          <input type="text" required>
+        </div>
+        <div>
+          <label>Nom</label>
+          <input type="text" required>
+        </div>
+      </div>
+      <label>Téléphone</label>
+      <input type="tel">
+      <div class="form-actions">
+        <button type="button" class="btn-secondary prev-step">Précédent</button>
+        <button type="submit" class="btn-primary">Créer mon compte</button>
+      </div>
+    </section>
+  </form>
+</main>
+  <!-- DOWNLOAD APP SECTION -->
+<section class="download-app">
+  <h2>Téléchargez notre application</h2>
+  <div class="app-links">
+    <a href="https://apps.apple.com/app/idXXXXXXXXX" target="_blank" rel="noopener">
+  <img src="images/appstore.png" alt="App Store" />
+    </a>
+   </div>
+   <div class="playstore-links">
+    <a href="https://play.google.com/store/apps/details?id=XXXXXXXXX" target="_blank" rel="noopener">
+  <img src="images/playstore.png" alt="Google Play Store" />
+    </a>
+    </div>
+</section>
+  <!-- FOOTER -->
+ <footer class="footer">
+  <img src="images/Logo+slogan+arabe.jpg" 
+  alt="Logo Rihla" 
+  class="footer-logo"/>
+  <p>&copy; 2025 Rihla. Tous droits réservés.</p>
+  <nav class="footer-links">
+    <a href="a-propos.html">À propos</a>
+    <a href="conditions.html">Conditions</a>
+    <a href="confidentialite.html">Confidentialité</a>
+  </nav>
+</footer>
+<script src="app.js"></script>
+<script type="module">
+import { register } from './js/auth.js';
+
+const form = document.getElementById('signupForm');
+const steps = form.querySelectorAll('.form-step');
+const nextBtns = form.querySelectorAll('.next-step');
+const prevBtns = form.querySelectorAll('.prev-step');
+let current = 0;
+
+function setStep(i) {
+  current = Math.max(0, Math.min(i, steps.length - 1));
+  steps.forEach((s, idx) => s.classList.toggle('is-active', idx === current));
+
+  // Mettre à jour la barre de progression si elle existe
+  const stepper = document.querySelector('.stepper');
+  if(stepper){
+    stepper.querySelectorAll('li').forEach((item, idx) => {
+      item.classList.toggle('is-active', idx === current);
+    });
+  }
+}
+
+// Boutons Suivant
+nextBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Vérifie que tous les inputs de l'étape courante sont valides
+    const inputs = steps[current].querySelectorAll('input');
+    let valid = true;
+    inputs.forEach(input => { if (!input.checkValidity()) valid = false; });
+    if (!valid) {
+      steps[current].reportValidity();
+      return;
+    }
+    setStep(current + 1);
+  });
+});
+
+// Boutons Précédent
+prevBtns.forEach(btn => btn.addEventListener('click', () => setStep(current - 1)));
+
+// Initialisation
+setStep(0);
+
+// Soumission du formulaire
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const inputs = form.querySelectorAll('input');
+  const email = inputs[0].value.trim();
+  const password = inputs[1].value;
+  const firstname = inputs[2].value.trim();
+  const lastname = inputs[3].value.trim();
+  const name = `${firstname} ${lastname}`.trim();
+  try {
+    await register(email, password, name);
+    alert('Compte créé avec succès !');
+    window.location.href = 'connexion.html';
+  } catch (err) {
+    alert(err.message || "Erreur lors de l’inscription.");
+  }
+});
+</script>
+</body>
+</html>
