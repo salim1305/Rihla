@@ -1,9 +1,15 @@
 import { Request, Response } from "express";
-import { PrismaClient, Role } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs"; // pour hasher le mot de passe
 import jwt from "jsonwebtoken";
 
 const prisma = new PrismaClient();
+
+// Define Role enum if not imported from elsewhere
+enum Role {
+  USER = "USER",
+  ADMIN = "ADMIN"
+}
 
 export const registerUser = async (req: Request, res: Response) => {
   try {
