@@ -9,7 +9,7 @@ const jwt = require("jsonwebtoken");
 // Configuration
 dotenv.config();
 const app = express();
-const PORT = process.env.PORT || 5000;
+// ...existing code...
 
 // Middleware
 app.use(cors());
@@ -71,7 +71,17 @@ app.get("/", (req, res) => {
   res.send("Bienvenue sur l'API Rihla 🚀");
 });
 
+// Servir les fichiers statiques du dossier racine
+const path = require('path');
+app.use(express.static(path.join(__dirname)));
+
+// Route par défaut : renvoyer index.html
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
 // Lancer serveur
-app.listen(5000, "0.0.0.0", () => {
-  console.log("🚀 Serveur lancé sur http://localhost:5000");
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`🚀 Serveur lancé sur http://localhost:${PORT}`);
 });
