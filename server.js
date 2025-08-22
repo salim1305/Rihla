@@ -66,10 +66,7 @@ app.post("/api/login", async (req, res) => {
   }
 });
 
-// Test API
-app.get("/", (req, res) => {
-  res.send("Bienvenue sur l'API Rihla 🚀");
-});
+// ...la route '/' qui sert index.html est déjà définie plus bas...
 
 // Servir les fichiers statiques du dossier racine
 const path = require('path');
