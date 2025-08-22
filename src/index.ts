@@ -29,7 +29,7 @@ const swaggerOptions = {
       description: "Documentation de l’API Rihla (plateforme d’expériences et de voyages)",
     },
     servers: [
-      { url: "http://localhost:" + (process.env.PORT || 5000) },
+      { url: process.env.API_BASE_URL || `http://localhost:${process.env.PORT || 5000}` },
     ],
   },
   apis: ["./src/routes/*.ts", "./src/controllers/*.ts"],
@@ -45,12 +45,18 @@ app.use(rateLimit({ windowMs: 15 * 60 * 1000, max: 100 }));
 app.use(morgan("dev"));
 app.use(cors({
   origin(origin, cb) {
-    const allowed = [
+    const frontendUrls = process.env.FRONTEND_URL?.split(',') || [
       "http://localhost:3000",
       "http://localhost:5500",
       "http://127.0.0.1:5500",
     ];
-    if (!origin || allowed.includes(origin)) return cb(null, true); // !origin => file://
+    
+    // Permettre les requêtes sans origin (ex: applications mobiles, Postman)
+    if (!origin) return cb(null, true);
+    
+    // Vérifier si l'origin est dans la liste autorisée
+    if (frontendUrls.includes(origin)) return cb(null, true);
+    
     return cb(null, false);
   },
   credentials: true,

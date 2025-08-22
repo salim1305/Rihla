@@ -1,6 +1,10 @@
 // js/api.js
-const DEFAULT_BASE = "http://localhost:5000"; // adapte si besoin
-export const BASE_URL = window.__RIHLA_API__ || DEFAULT_BASE;
+// Configuration de l'API - récupère l'URL depuis les variables d'environnement ou utilise localhost par défaut
+const DEFAULT_BASE = "http://localhost:5000";
+// Permet de configurer l'URL de l'API via une variable globale ou l'environnement
+export const BASE_URL = window.__RIHLA_API__ || 
+  (typeof process !== 'undefined' && process.env?.API_BASE_URL) || 
+  DEFAULT_BASE;
 
 function authHeader() {
   const t = localStorage.getItem("token");

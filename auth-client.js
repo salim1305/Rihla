@@ -1,7 +1,10 @@
 // auth-client.js
 // Gestion centralisée de l'authentification et des appels API pour un frontend HTML/JS
 
-const API_URL = "http://localhost:5000"; // À adapter si déployé
+// Configuration de l'API - utilise une variable globale ou l'environnement, sinon localhost par défaut
+const API_URL = window.__RIHLA_API__ || 
+  (typeof process !== 'undefined' && process.env?.API_BASE_URL) || 
+  "http://localhost:5000";
 
 export async function register(email, password, role = "user") {
   const res = await fetch(`${API_URL}/auth/register`, {

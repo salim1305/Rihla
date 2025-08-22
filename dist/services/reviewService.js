@@ -1,0 +1,15 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.deleteReview = exports.updateReview = exports.createReview = exports.getReviewById = exports.getReviews = void 0;
+const client_1 = require("@prisma/client");
+const prisma = new client_1.PrismaClient();
+const getReviews = async () => prisma.review.findMany({ include: { user: true, listing: true } });
+exports.getReviews = getReviews;
+const getReviewById = async (id) => prisma.review.findUnique({ where: { id }, include: { user: true, listing: true } });
+exports.getReviewById = getReviewById;
+const createReview = async (data) => prisma.review.create({ data });
+exports.createReview = createReview;
+const updateReview = async (id, data) => prisma.review.update({ where: { id }, data });
+exports.updateReview = updateReview;
+const deleteReview = async (id) => prisma.review.delete({ where: { id } });
+exports.deleteReview = deleteReview;
