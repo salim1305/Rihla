@@ -1,6 +1,6 @@
 // JS pour la page profil.html (extraction du script inline)
-import { logout } from './js/auth.js';
-import { getProfile } from './js/user.js';
+import { logout } from './auth.js';
+import { getProfile } from './user.js';
 
 // Redirige si pas connecté
 const token = localStorage.getItem('token');
