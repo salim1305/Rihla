@@ -69,9 +69,33 @@ app.post("/api/login", async (req, res) => {
 
 // ...la route '/' qui sert index.html est déjà définie plus bas...
 
-// Servir les fichiers statiques du dossier racine
+
 const path = require('path');
+// Servir tous les fichiers statiques (HTML, CSS, JS, images...)
 app.use(express.static(path.join(__dirname)));
+
+// Route explicite pour chaque page HTML (bonne pratique SEO et CSP)
+const htmlPages = [
+  'index.html',
+  'connexion.html',
+  'inscription.html',
+  'profil.html',
+  'a-propos.html',
+  'editer-profil.html',
+  'devenir-hote-experience.html',
+  'experiences.html',
+  'messages.html',
+  'reservations.html',
+  'telecharger.html',
+  'conditions.html',
+  'confidentialite.html',
+  'admin.html'
+];
+htmlPages.forEach(page => {
+  app.get('/' + page, (req, res) => {
+    res.sendFile(path.join(__dirname, page));
+  });
+});
 
 // Route par défaut : renvoyer index.html
 app.get('/', (req, res) => {
