@@ -1,3 +1,8 @@
+/* Pour remplacer l'ancien style inline de #login-error */
+.login-error {
+    color: red;
+    margin-top: 10px;
+}
 body {
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #19959a, wheat);

@@ -1,3 +1,28 @@
+/* Pour remplacer les styles inline supprimés (avatar, preview, etc.) */
+.avatar-preview-container {
+  margin: 10px 0;
+}
+.avatar-preview-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  vertical-align: middle;
+  display: none;
+}
+.user-avatar[src] {
+  display: inline-block;
+}
+.experience-img {
+  max-width: 200px;
+}
 /* RESET */
 * {
   margin: 0;

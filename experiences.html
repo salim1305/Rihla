@@ -28,7 +28,7 @@
         div.innerHTML = `
           <h3>${exp.title}</h3>
           <p>${exp.description}</p>
-          ${exp.image ? `<img src="${exp.image}" style="max-width:200px;">` : ''}
+          ${exp.image ? `<img src="${exp.image}" class="experience-img">` : ''}
           <small>Par: ${exp.user?.name || 'Utilisateur'} | ${new Date(exp.createdAt).toLocaleString()}</small>
         `;
         list.appendChild(div);
