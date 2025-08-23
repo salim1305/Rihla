@@ -4,9 +4,9 @@ const csp = (req, res, next) => {
     'Content-Security-Policy',
     [
       "default-src 'self'",
-      "connect-src 'self' http://localhost:5000",
+      "connect-src *",
       "img-src 'self' data:",
-      "style-src 'self'",
+      "style-src 'self' 'unsafe-inline'",
       "script-src 'self'"
     ].join('; ')
   );
