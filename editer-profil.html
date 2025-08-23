@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' http://localhost:5000; img-src 'self' data:; style-src 'self'; script-src 'self';">
   <title>Éditer le profil – Rihla</title>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -43,13 +44,16 @@
   </form>
 </main>
 <script src="app.js"></script>
-</main>
 <script type="module">
 import { getProfile, updateProfile } from './js/user.js';
 
 // Pré-remplir le formulaire avec les infos actuelles
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-  </script>
-  <script type="module" src="js/editer-profil.js"></script>
-    let firstname = '', lastname = '';
+    // TODO: compléter la logique ici
+  } catch (e) {
+    console.error(e);
+  }
+});
+</script>
+<script type="module" src="js/editer-profil.js"></script>
