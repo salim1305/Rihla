@@ -50,57 +50,6 @@ import { getProfile, updateProfile } from './js/user.js';
 // Pré-remplir le formulaire avec les infos actuelles
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    const data = await getProfile();
-    // Découper le nom si possible
+  </script>
+  <script type="module" src="js/editer-profil.js"></script>
     let firstname = '', lastname = '';
-    if (data?.name) {
-      const parts = data.name.split(' ');
-      firstname = parts[0] || '';
-      lastname = parts.slice(1).join(' ');
-    }
-    document.getElementById('firstname').value = firstname;
-    document.getElementById('lastname').value = lastname;
-    document.getElementById('email').value = data.email || '';
-    // Afficher l'avatar actuel si présent
-    if (data.avatar) {
-      document.getElementById('avatarPreview').src = data.avatar;
-    }
-  } catch (e) {
-    alert("Erreur lors du chargement du profil.");
-  }
-});
-
-// Soumission du formulaire
-document.getElementById('editProfileForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const firstname = document.getElementById('firstname').value.trim();
-  const lastname = document.getElementById('lastname').value.trim();
-  const name = `${firstname} ${lastname}`.trim();
-  const avatarInput = document.getElementById('avatar');
-  const formData = new FormData();
-  formData.append('name', name);
-  if (avatarInput.files && avatarInput.files[0]) {
-    formData.append('avatar', avatarInput.files[0]);
-  }
-  try {
-    await updateProfile(formData, true); // true = multipart
-    alert('Profil mis à jour !');
-    window.location.href = 'profil.html';
-  } catch (err) {
-    alert(err.message || "Erreur lors de la mise à jour.");
-  }
-// Aperçu de la photo sélectionnée
-document.getElementById('avatar').addEventListener('change', (e) => {
-  const file = e.target.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = function(evt) {
-      document.getElementById('avatarPreview').src = evt.target.result;
-    };
-    reader.readAsDataURL(file);
-  }
-});
-});
-</script>
-</body>
-</html>
