@@ -1,5 +1,5 @@
 // js/api.js
-const DEFAULT_BASE = "http://localhost:5000"; // adapte si besoin
+const DEFAULT_BASE = ""; // URL relative pour compatibilité Express/prod
 export const BASE_URL = window.__RIHLA_API__ || DEFAULT_BASE;
 
 function authHeader() {
