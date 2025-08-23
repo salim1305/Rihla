@@ -12,6 +12,7 @@ const app = express();
 // ...existing code...
 
 // Middleware
+app.use(require('./src/middlewares/csp.js'));
 app.use(cors());
 app.use(express.json());
 
