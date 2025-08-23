@@ -1,4 +1,4 @@
-import { api } from './js/api.js';
+import { api } from './api.js';
 
 const form = document.getElementById('hostExpForm');
 
