@@ -5,6 +5,7 @@ export const listingSchema = Joi.object({
   description: Joi.string().min(10).max(1000).required(),
   price: Joi.number().positive().required(),
   location: Joi.string().min(2).max(100).required(),
+  photos: Joi.array().items(Joi.string()).optional(),
 });
 
 export const reservationSchema = Joi.object({

@@ -20,6 +20,7 @@ export const createListing = async (data: {
   description: string;
   price: number;
   location: string;
+  photos?: string[];
 }) => {
   return prisma.listing.create({ data });
 };

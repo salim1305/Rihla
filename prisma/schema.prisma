@@ -45,6 +45,7 @@ model Listing {
   price       Float
   location    String
   createdAt   DateTime     @default(now())
+  photos      String[]     // URLs des photos uploadées
 
   host        HostProfile  @relation(fields: [hostId], references: [id])
   reservations Reservation[]
