@@ -9,7 +9,10 @@ const jwt = require("jsonwebtoken");
 // Configuration
 dotenv.config();
 const app = express();
-// ...existing code...
+
+// ROUTES API (brancher les routers TypeScript compilés)
+const listingsRouter = require('./src/routes/listings');
+app.use('/api/listings', listingsRouter);
 
 // Middleware
 app.use(require('./src/middlewares/csp.js'));
