@@ -12,7 +12,9 @@ const app = express();
 
 // ROUTES API (brancher les routers TypeScript compilés)
 const listingsRouter = require('./src/routes/listings');
+const experiencesRouter = require('./src/routes/experiences');
 app.use('/api/listings', listingsRouter);
+app.use('/api/experiences', experiencesRouter);
 
 // Middleware
 app.use(require('./src/middlewares/csp.js'));
