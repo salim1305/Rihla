@@ -57,7 +57,13 @@ const getListing = async (req, res, next) => {
 exports.getListing = getListing;
 const createListing = async (req, res, next) => {
     try {
-        const listing = await listingService.createListing(req.body);
+        // Récupère les chemins des fichiers uploadés
+        let photos = [];
+        if (req.files && Array.isArray(req.files)) {
+            photos = req.files.map((file) => file.path.replace(/\\/g, '/'));
+        }
+        const data = { ...req.body, photos };
+        const listing = await listingService.createListing(data);
         res.status(201).json(listing);
     }
     catch (err) {

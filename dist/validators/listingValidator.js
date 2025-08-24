@@ -10,6 +10,7 @@ exports.listingSchema = joi_1.default.object({
     description: joi_1.default.string().min(10).max(1000).required(),
     price: joi_1.default.number().positive().required(),
     location: joi_1.default.string().min(2).max(100).required(),
+    photos: joi_1.default.array().items(joi_1.default.string()).optional(),
 });
 exports.reservationSchema = joi_1.default.object({
     listingId: joi_1.default.number().required(),

@@ -123,7 +123,7 @@ function initHostExperienceForm() {
 
       const formData = new FormData(hostForm);
 
-      const { ok, data } = await apiRequest("/api/experiences", "POST", formData, true);
+  const { ok, data } = await apiRequest("/experiences", "POST", formData, true);
       if (ok) {
         window.location.href = "profil.html";
       } else {

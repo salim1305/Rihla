@@ -23,7 +23,7 @@ form.addEventListener('submit', async (e) => {
   // ex: fd.set('title', ...), fd.set('price', ...), etc.
 
   try {
-    await api.postForm('/api/listings', fd);
+  await api.postForm('/listings', fd);
     alert('Expérience publiée avec succès !');
     window.location.href = 'profil.html';
   } catch (err) {
