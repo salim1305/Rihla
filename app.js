@@ -11,10 +11,10 @@ function initMultiStepForms() {
     let currentStep = 0;
 
     function showStep(step) {
-      steps.forEach((s, i) => s.classList.toggle("active", i === step));
+      steps.forEach((s, i) => s.classList.toggle("is-active", i === step));
       stepperItems.forEach((item, i) => {
         item.classList.toggle("completed", i < step);
-        item.classList.toggle("active", i === step);
+        item.classList.toggle("is-active", i === step);
       });
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
